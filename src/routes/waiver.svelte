@@ -1,5 +1,9 @@
 <script>
 	import { supabase } from '$lib/supabaseClient';
+	import StarterKit from '@tiptap/starter-kit';
+	import Link from '@tiptap/extension-link';
+	import { generateHTML } from '@tiptap/html';
+
 	let loading = true;
 	let season;
 	let content;
@@ -15,10 +19,9 @@
 				.single();
 
 			if (error && status !== 406) throw error;
-
 			if (data) {
 				season = data.season;
-				content = data.content;
+				content = generateHTML(data.content, [StarterKit, Link]);
 			}
 		} catch (error) {
 			console.error(error.message);
@@ -70,19 +73,7 @@
 		</h1>
 		{#if content}
 			<p class="text-center">{season} Season</p>
-			{#each content.sections as section}
-				{#if section.heading}
-					<h2>{section.heading}</h2>
-				{/if}
-				{#if section.description}
-					<p>{section.description}</p>
-				{/if}
-				<ol>
-					{#each section.bullets as bullet}
-						<li>{@html bullet}</li>
-					{/each}
-				</ol>
-			{/each}
+			{@html content}
 		{/if}
 	</section>
 	<section />

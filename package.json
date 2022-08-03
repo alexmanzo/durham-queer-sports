@@ -34,6 +34,10 @@
 		"@fontsource/fraunces": "^4.5.6",
 		"@lottiefiles/svelte-lottie-player": "^0.2.0",
 		"@supabase/supabase-js": "^1.35.4",
+		"@tiptap/core": "^2.0.0-beta.182",
+		"@tiptap/extension-link": "^2.0.0-beta.43",
+		"@tiptap/html": "^2.0.0-beta.181",
+		"@tiptap/starter-kit": "^2.0.0-beta.191",
 		"signature_pad": "^4.0.4",
 		"svelte-forms": "^2.3.1"
 	}

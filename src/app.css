@@ -3,3 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.ProseMirror {
+	@apply prose bg-white border-black border-4 rounded-xl p-3;
+}
+
