@@ -1,6 +1,4 @@
 <script>
-import Header from '$lib/header.svelte';
-
 	import { supabase } from '$lib/supabaseClient';
 	let loading = true;
 	let season;
@@ -21,7 +19,7 @@ import Header from '$lib/header.svelte';
 			if (data) {
 				season = data.season;
 				content = data.content;
-        console.log(data.content.sections)
+				console.log(data.content.sections);
 			}
 		} catch (error) {
 			console.error(error.message);
@@ -29,25 +27,114 @@ import Header from '$lib/header.svelte';
 			loading = false;
 		}
 	};
+
+	let firstName;
+	let lastName;
+	let email;
+	let agree;
+	let submitted = false;
+
+	const signWaiver = async () => {
+		if (agree) {
+			try {
+				const { data, error } = await supabase.from('waiver_signatures').insert([
+					{
+						first_name: firstName,
+						last_name: lastName,
+						email
+					}
+				]);
+
+				console.log(data);
+
+				if (error) throw error;
+			} catch (error) {
+				alert(`Send this to Alex to fix it: ${error.message}`);
+			} finally {
+				submitted = true;
+			}
+		} else {
+			alert('You must agree to the terms of the waiver.');
+		}
+	};
 </script>
 
-<Header />
-<div use:getWaiver class="prose mx-auto lg:py-10 py-6">
-	<h1 class="text-center text-xl lg:text-4xl">Durham Queer Sports<br>Participant Assumption of Risk and Release of Liability</h1>
-	<p class="text-center">{season} Season</p>
-	{#if content}
-		{#each content.sections as section}
-			{#if section.heading}
-				<h2>{section.heading}</h2>
-			{/if}
-			{#if section.description}
-				<p>{section.description}</p>
-			{/if}
-			<ol>
-				{#each section.bullets as bullet}
-					<li>{@html bullet}</li>
-				{/each}
-			</ol>
-		{/each}
-	{/if}
+<header class="flex md:flex-row flex-col gap-4 md:gap-0 justify-between items-center py-5">
+	<h1 class="font-bold text-3xl font-serif"><a href="/">Durham Queer Sports</a></h1>
+</header>
+<div class="prose mx-auto lg:py-10 py-6">
+	<section use:getWaiver>
+		<h1 class="text-center text-xl lg:text-4xl">
+			Durham Queer Sports<br />Participant Assumption of Risk and Release of Liability
+		</h1>
+		{#if content}
+			<p class="text-center">{season} Season</p>
+			{#each content.sections as section}
+				{#if section.heading}
+					<h2>{section.heading}</h2>
+				{/if}
+				{#if section.description}
+					<p>{section.description}</p>
+				{/if}
+				<ol>
+					{#each section.bullets as bullet}
+						<li>{@html bullet}</li>
+					{/each}
+				</ol>
+			{/each}
+		{/if}
+	</section>
+	<section />
+
+	<section>
+		{#if !submitted}
+			<form on:submit|preventDefault={signWaiver}>
+				<div class="flex justify-between gap-3 mb-2">
+					<div class="flex-1 w-full">
+						<label class="block" for="firstName">First Name</label>
+						<input
+							class="block w-full"
+							type="text"
+							name="firstName"
+							id="firstName"
+							bind:value={firstName}
+							required
+						/>
+					</div>
+					<div class="flex-1 w-full">
+						<label class="block" for="lastName">Last Name</label>
+						<input
+							class="block w-full"
+							type="text"
+							name="lastName"
+							id="lastName"
+							bind:value={lastName}
+							required
+						/>
+					</div>
+				</div>
+				<label class="block w-full" for="email">Email</label>
+				<input
+					class="block w-full"
+					type="email"
+					name="email"
+					id="userEmail"
+					bind:value={email}
+					required
+				/>
+				<label for="agree" class="mt-3 flex items-center gap-3">
+					<input type="checkbox" name="agree" id="agree" bind:checked={agree} required />
+					I agree to the terms of the waiver.
+				</label>
+				<button
+					type="submit"
+					class="block w-full mt-3 bg-cyan-800 disabled:opacity-50 disabled:hover:bg-cyan-800 hover:bg-cyan-900 transition-colors duration-100 text-white font-medium tracking-wide px-4 py-2 border-white rounded"
+					>Sign Waiver</button
+				>
+			</form>
+		{/if}
+		{#if submitted}
+			<p class="text-center">Thank you for signing the waiver.</p>
+		{/if}
+	</section>
 </div>
