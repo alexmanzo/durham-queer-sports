@@ -7,6 +7,7 @@
 	<nav class="w-full md:w-auto flex items-center justify-center md:justify-between gap-7">
 		<a on:click={() => animateScroll.scrollTo({ element: '#about' })} href="#about">About</a>
 		<a on:click={() => animateScroll.scrollTo({ element: '#leagues' })} href="#leagues">Leagues</a>
+		<a href="/waiver">Waiver</a>
 		<a
 			href="mailto:durhamqueersports@gmail.com"
 			target="_blank"

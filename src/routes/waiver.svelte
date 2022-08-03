@@ -19,7 +19,6 @@
 			if (data) {
 				season = data.season;
 				content = data.content;
-				console.log(data.content.sections);
 			}
 		} catch (error) {
 			console.error(error.message);
@@ -32,20 +31,22 @@
 	let lastName;
 	let email;
 	let agree;
-  let honeypotField;
+	let honeypotField;
 	let submitted = false;
 
 	const signWaiver = async () => {
-    console.log({firstName, lastName, email, agree, honeypotField});
 		if (agree && !honeypotField) {
 			try {
-				const { data, error } = await supabase.from('waiver_signatures').insert([
-					{
-						first_name: firstName,
-						last_name: lastName,
-						email
-					}
-				]);
+				const { data, error } = await supabase.from('waiver_signatures').insert(
+					[
+						{
+							first_name: firstName,
+							last_name: lastName,
+							email
+						}
+					],
+					{ returning: 'minimal' }
+				);
 
 				if (error) throw error;
 			} catch (error) {
@@ -126,8 +127,8 @@
 					<input type="checkbox" name="agree" id="agree" bind:checked={agree} required />
 					I agree to the terms of the waiver.
 				</label>
-        <label for="petName" class="hidden">Pet Name</label>
-        <input type="hidden" name="petName" id="petName" bind:value={honeypotField} />
+				<label for="petName" class="hidden">Pet Name</label>
+				<input type="hidden" name="petName" id="petName" bind:value={honeypotField} />
 				<button
 					type="submit"
 					class="block w-full mt-3 bg-cyan-800 disabled:opacity-50 disabled:hover:bg-cyan-800 hover:bg-cyan-900 transition-colors duration-100 text-white font-medium tracking-wide px-4 py-2 border-white rounded"
