@@ -1,4 +1,6 @@
 <script>
+	import { fade, fly } from 'svelte/transition';
+	import { sineOut } from 'svelte/easing';
 	import { supabase } from '$lib/supabaseClient';
 	import StarterKit from '@tiptap/starter-kit';
 	import Link from '@tiptap/extension-link';
@@ -68,67 +70,74 @@
 </header>
 <div class="prose mx-auto lg:py-10 py-6">
 	<section use:getWaiver>
-		<h1 class="text-center text-xl lg:text-4xl">
-			Durham Queer Sports<br />Participant Assumption of Risk and Release of Liability
-		</h1>
-		{#if content}
-			<p class="text-center">{season} Season</p>
-			{@html content}
+		{#if !loading}
+			<div in:fly={{ y: 200, duration: 250, easing: sineOut }}>
+				<div in:fade={{ duration: 200 }}>
+					<h1 class="text-center text-xl lg:text-4xl">
+						Durham Queer Sports<br />Participant Assumption of Risk and Release of Liability
+					</h1>
+					{#if content}
+						<p class="text-center" in:fade={{ duration: 300 }}>{season} Season</p>
+						{@html content}
+					{/if}
+				</div>
+			</div>
 		{/if}
 	</section>
 	<section />
-
-	<section>
-		{#if !submitted}
-			<form on:submit|preventDefault={signWaiver}>
-				<div class="flex justify-between gap-3 mb-2">
-					<div class="flex-1 w-full">
-						<label class="block" for="firstName">First Name</label>
-						<input
-							class="block w-full"
-							type="text"
-							name="firstName"
-							id="firstName"
-							bind:value={firstName}
-							required
-						/>
+	{#if !loading}
+		<section>
+			{#if !submitted}
+				<form on:submit|preventDefault={signWaiver}>
+					<div class="flex justify-between gap-3 mb-2">
+						<div class="flex-1 w-full">
+							<label class="block" for="firstName">First Name</label>
+							<input
+								class="block w-full"
+								type="text"
+								name="firstName"
+								id="firstName"
+								bind:value={firstName}
+								required
+							/>
+						</div>
+						<div class="flex-1 w-full">
+							<label class="block" for="lastName">Last Name</label>
+							<input
+								class="block w-full"
+								type="text"
+								name="lastName"
+								id="lastName"
+								bind:value={lastName}
+								required
+							/>
+						</div>
 					</div>
-					<div class="flex-1 w-full">
-						<label class="block" for="lastName">Last Name</label>
-						<input
-							class="block w-full"
-							type="text"
-							name="lastName"
-							id="lastName"
-							bind:value={lastName}
-							required
-						/>
-					</div>
-				</div>
-				<label class="block w-full" for="email">Email</label>
-				<input
-					class="block w-full"
-					type="email"
-					name="email"
-					id="userEmail"
-					bind:value={email}
-					required
-				/>
-				<label for="agree" class="mt-3 flex items-center gap-3">
-					<input type="checkbox" name="agree" id="agree" bind:checked={agree} required />
-					I agree to the terms of the waiver.
-				</label>
-				<label for="petName" class="hidden">Pet Name</label>
-				<input type="hidden" name="petName" id="petName" bind:value={honeypotField} />
-				<button
-					type="submit"
-					class="block w-full mt-3 bg-cyan-800 disabled:opacity-50 disabled:hover:bg-cyan-800 hover:bg-cyan-900 transition-colors duration-100 text-white font-medium tracking-wide px-4 py-2 border-white rounded"
-					>Sign Waiver</button
-				>
-			</form>
-		{/if}
-		{#if submitted}
-			<p class="text-center">Thank you for signing the waiver.</p>
-		{/if}
-	</section>
+					<label class="block w-full" for="email">Email</label>
+					<input
+						class="block w-full"
+						type="email"
+						name="email"
+						id="userEmail"
+						bind:value={email}
+						required
+					/>
+					<label for="agree" class="mt-3 flex items-center gap-3">
+						<input type="checkbox" name="agree" id="agree" bind:checked={agree} required />
+						I agree to the terms of the waiver.
+					</label>
+					<label for="petName" class="hidden">Pet Name</label>
+					<input type="hidden" name="petName" id="petName" bind:value={honeypotField} />
+					<button
+						type="submit"
+						class="block w-full mt-3 bg-cyan-800 disabled:opacity-50 disabled:hover:bg-cyan-800 hover:bg-cyan-900 transition-colors duration-100 text-white font-medium tracking-wide px-4 py-2 border-white rounded"
+						>Sign Waiver</button
+					>
+				</form>
+			{/if}
+			{#if submitted}
+				<p class="text-center">Thank you for signing the waiver.</p>
+			{/if}
+		</section>
+	{/if}
 </div>
