@@ -1,10 +1,10 @@
 <script>
 	import '@fontsource/fraunces/variable-full.css';
 
-	import Header from '$lib/header.svelte';
-	import Hero from '$lib/hero.svelte';
-	import About from '$lib/about.svelte';
-	import Leagues from '$lib/leagues.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import About from '$lib/components/About.svelte';
+	import Leagues from '$lib/components/Leagues.svelte';
 </script>
 
 <Header />

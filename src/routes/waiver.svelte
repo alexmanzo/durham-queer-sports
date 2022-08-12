@@ -1,7 +1,7 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
 	import { sineOut } from 'svelte/easing';
-	import { supabase } from '$lib/supabaseClient';
+	import { supabase } from '$lib/supabase/supabaseClient';
 	import StarterKit from '@tiptap/starter-kit';
 	import Link from '@tiptap/extension-link';
 	import { generateHTML } from '@tiptap/html';

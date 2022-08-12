@@ -1,12 +1,12 @@
 <script>
-	import Tiptap from '$lib/tiptap.svelte';
-	import { supabase } from '$lib/supabaseClient';
+	import Tiptap from '$lib/components/Tiptap.svelte';
+	import { supabase } from '$lib/supabase/supabaseClient';
 	let newVersion = false;
 	let season;
 	let setToCurrent = false;
 	let content;
 	let submitted = false;
-	import { waiverContent } from '$lib/waiverStore';
+	import { waiverContent } from '$lib/stores/waiverStore';
 	import { onMount } from 'svelte';
 
 	const user = supabase.auth.user();

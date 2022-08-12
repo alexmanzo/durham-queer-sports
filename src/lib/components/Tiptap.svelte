@@ -3,7 +3,7 @@
 	import { Editor } from '@tiptap/core';
 	import StarterKit from '@tiptap/starter-kit';
 	import Link from '@tiptap/extension-link';
-	import { waiverContent } from '$lib/waiverStore';
+	import { waiverContent } from '$lib/stores/waiverStore';
 
 	let element;
 	let editor;
@@ -45,7 +45,8 @@
 			},
 			onBlur: ({ editor }) => {
 				const json = editor.getJSON();
-				waiverContent.set(json);
+				// waiverContent.set(json);
+				waiverContent.update(() => json);
 			}
 		});
 	});
