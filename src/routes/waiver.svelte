@@ -5,6 +5,7 @@
 	import StarterKit from '@tiptap/starter-kit';
 	import Link from '@tiptap/extension-link';
 	import { generateHTML } from '@tiptap/html';
+import Header from '$lib/components/Header.svelte';
 
 	let loading = true;
 	let season;
@@ -65,15 +66,13 @@
 	};
 </script>
 
-<header class="flex md:flex-row flex-col gap-4 md:gap-0 justify-between items-center py-5">
-	<h1 class="font-bold text-3xl font-serif"><a href="/">Durham Queer Sports</a></h1>
-</header>
+<Header />
 <div class="prose mx-auto lg:py-10 py-6">
 	<section use:getWaiver>
 		{#if !loading}
 			<div in:fly={{ y: 200, duration: 250, easing: sineOut }}>
 				<div in:fade={{ duration: 200 }}>
-					<h1 class="text-center text-xl lg:text-4xl">
+					<h1 class="font-serif font-normal text-center text-xl lg:text-4xl">
 						Durham Queer Sports<br />Participant Assumption of Risk and Release of Liability
 					</h1>
 					{#if content}
@@ -130,7 +129,7 @@
 					<input type="hidden" name="petName" id="petName" bind:value={honeypotField} />
 					<button
 						type="submit"
-						class="block w-full mt-3 bg-cyan-800 disabled:opacity-50 disabled:hover:bg-cyan-800 hover:bg-cyan-900 transition-colors duration-100 text-white font-medium tracking-wide px-4 py-2 border-white rounded"
+						class="block w-full mt-3 bg-indigo hover:bg-indigo-7 focus-visible:outline-indigo-11 transition-colors duration-100 text-white font-medium tracking-wide px-4 py-2 border-white rounded"
 						>Sign Waiver</button
 					>
 				</form>

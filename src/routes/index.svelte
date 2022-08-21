@@ -1,5 +1,6 @@
 <script>
-	import '@fontsource/fraunces/variable-full.css';
+	import "@fontsource/open-sans/400.css";
+	import "@fontsource/open-sans/variable.css";
 
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';

@@ -18,7 +18,7 @@
 <section id="about" class="lg:my-24 md:my-20 my-10">
 	<div class="flex flex-col items-center justify-between gap-10 md:flex-row">
 		<div class="flex-1">
-			<h2 class="text-3xl mb-5 font-serif font-semibold">About DQS</h2>
+			<h2 class="text-3xl mb-5 font-serif font-medium tracking-wide">About DQS</h2>
 			<p>
 				Durham Queer Sports is an association of <strong>free</strong> social sports leagues for
 				queer and trans people around North Carolina's Triangle region. There's
