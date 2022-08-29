@@ -66,7 +66,6 @@ import Header from '$lib/components/Header.svelte';
 	};
 </script>
 
-<Header />
 <div class="prose mx-auto lg:py-10 py-6">
 	<section use:getWaiver>
 		{#if !loading}

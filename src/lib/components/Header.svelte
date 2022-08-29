@@ -1,22 +1,54 @@
 <script>
-	import * as animateScroll from 'svelte-scrollto';
+	import { Hamburger } from 'svelte-hamburgers';
+	import { fly } from 'svelte/transition';
+	import { sineOut } from 'svelte/easing';
+	import { focusTrap } from 'svelte-focus-trap';
+	let open;
 </script>
 
-<header class="flex gap-4 md:gap-0 items-center justify-between py-5">
-	<div class="flex items-center">
-		<a href="/"><img src="/logo.png" alt="Durham Queer Sports logo" class="max-h-28 md:max-h-32" /></a>
-		<h1 class="sr-only font-medium tracking-wide text-3xl font-serif">Durham Queer Sports</h1>
+<svelte:head>
+	{#if open}
+		<style>
+			body {
+				@apply overflow-y-hidden bg-black bg-opacity-50;
+			}
+
+			.lottie-player svg {
+				@apply opacity-50;
+			}
+		</style>
+	{/if}
+</svelte:head>
+
+<header class="py-5 relative">
+	<div class="flex items-center justify-between w-full relative z-20 container mx-auto px-3">
+		<a href="/">
+			<img src="/logo.png" alt="Durham Queer Sports logo" class="max-h-28 md:max-h-32" />
+		</a>
+		<Hamburger
+			bind:open
+			type="squeeze"
+			--color="#1f2c5c"
+			--active-color="#1c274f"
+			--border-radius="2px"
+		/>
 	</div>
 
-	<nav class="w-full md:w-auto flex items-center justify-end md:justify-between gap-7 max-h-14">
-		<a on:click={() => animateScroll.scrollTo({ element: '#about' })} href="/#about" class="hidden md:block">About</a>
-		<a on:click={() => animateScroll.scrollTo({ element: '#leagues' })} href="/#leagues" class="hidden md:block">Leagues</a>
-		<a href="/waiver">Waiver</a>
-		<a
-			href="mailto:durhamqueersports@gmail.com"
-			target="_blank"
-			class="bg-indigo hover:bg-indigo-7 focus-visible:outline-indigo-11 transition-colors duration-100 text-white font-medium tracking-wide px-4 py-2 border-white rounded"
-			>Contact Us</a
+	{#if open}
+		<div
+			transition:fly={{ x: 200, duration: 250, easing: sineOut }}
+			class="bg-indigo-12 flex flex-col items-center gap-7 absolute top-0 right-0 pt-24 min-h-screen w-screen z-10 md:w-1/3 shadow-2xl"
 		>
-	</nav>
+			<nav class="flex flex-col items-center gap-9 py-14 text-2xl">
+				<a href="/schedule" class="hover:underline" on:click={() => (open = !open)}>Schedule</a>
+				<a href="/waiver" class="hover:underline" on:click={() => (open = !open)}>Waiver</a>
+				<a
+					href="mailto:durhamqueersports@gmail.com"
+					target="_blank"
+					class="bg-indigo hover:bg-indigo-7 focus-visible:outline-indigo-11 transition-colors duration-100 text-white font-medium tracking-wide px-4 py-2 border-white rounded"
+					on:click={() => (open = !open)}>Contact Us</a
+				>
+			</nav>
+		</div>
+	{/if}
 </header>

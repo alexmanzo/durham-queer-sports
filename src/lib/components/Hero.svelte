@@ -12,6 +12,7 @@
 <section
 	class="flex flex-col items-center justify-between md:flex-row-reverse lg:my-24 md:my-20 my-10"
 >
+	<h1 class="sr-only">Durham Queer Sports</h1>
 	<div class="flex-1 leading-normal text-3xl">
 		<p class="text-center md:text-left">
 			At Durham Queer Sports, our mission is to create a <strong
