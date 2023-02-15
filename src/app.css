@@ -1,0 +1,225 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ProseMirror {
+	@apply prose bg-white border-black border-4 rounded-xl p-3;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Medium.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Black.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Black.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Bold.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Bold.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Medium.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Regular.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Light.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Bold.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Bold.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Regular.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-SemiBold.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-SemiBold.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Black.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta';
+	src: url('/fonts/VCHenrietta-Light.woff2') format('woff2'),
+			url('/fonts/VCHenrietta-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Black.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Regular.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Light.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Medium.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Medium.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Regular.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-SemiBold.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-Light.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'VC Henrietta Condensed';
+	src: url('/fonts/VCHenriettaCondensed-SemiBold.woff2') format('woff2'),
+			url('/fonts/VCHenriettaCondensed-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
