@@ -10,11 +10,12 @@
 	{#if open}
 		<style>
 			body {
-				@apply overflow-y-hidden bg-black bg-opacity-50;
+				overflow-y: hidden;
+				background-color: rgba(0, 0, 0, 0.5);
 			}
 
 			.lottie-player svg {
-				@apply opacity-50;
+				opacity: 0.5;
 			}
 		</style>
 	{/if}
@@ -37,7 +38,7 @@
 	{#if open}
 		<div
 			transition:fly={{ x: 200, duration: 250, easing: sineOut }}
-			class="bg-indigo-12 flex flex-col items-center gap-7 absolute top-0 right-0 pt-24 min-h-screen w-screen z-10 md:w-1/3 shadow-2xl"
+			class="bg-indigo-12 flex flex-col items-center gap-7 fixed top-0 right-0 pt-24 min-h-screen w-screen z-10 md:w-1/3 shadow-2xl"
 		>
 			<nav class="flex flex-col items-center gap-9 py-14 text-2xl">
 				<a href="/about" class="hover:underline" on:click={() => (open = !open)}>About DQS</a>
