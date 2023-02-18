@@ -1,6 +1,11 @@
-<script>
+<script lang="ts">
+	import '@fontsource/open-sans/400.css';
 
+	import Hero from '$lib/components/Hero.svelte';
+	// import About from '$lib/components/About.svelte';
+	// import Leagues from '$lib/components/Leagues.svelte';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<Hero />
+<!-- <About />
+<Leagues /> -->
