@@ -24,8 +24,8 @@
 	<meta name="theme-color" content="#ffffff" />
 </svelte:head>
 
-<Banner />
 <Header />
 <main class="container mx-auto px-3">
+	<Banner />
 	<slot />
 </main>
