@@ -21,8 +21,8 @@
 </script>
 
 {#if $alertContent.data?.alerts.length > 0}
-	<div class="px-2 my-5 lg:w-3/4 mx-auto" in:fade={{ duration: 200 }}>
-		<div class="bg-indigo-12 text-indigo px-3 py-2 mx-auto border-indigo rounded-md border">
+	<div class="px-2 my-5 lg:w-3/4 mx-auto" in:fly={{ y: 200, duration: 250, easing: sineOut }}>
+		<div class="bg-indigo-12 text-indigo px-3 py-2 mx-auto border-indigo rounded-md border" in:fade={{ duration: 200 }}>
 			<div class="text-center mx-auto">
 				{#each $alertContent.data.alerts as alert}
 					<p class="mb-2"><strong>{alert.title}</strong></p>
