@@ -1,7 +1,15 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
-  import '@fontsource/open-sans/400.css';
+	import '@fontsource/open-sans/400.css';
 	import '../app.css';
+
+	import { createClient, setContextClient } from '@urql/svelte';
+
+	const client = createClient({
+		url: import.meta.env.VITE_HYGRAPH_READ_ONLY_ENDPOINT
+	});
+
+	setContextClient(client);
 </script>
 
 <svelte:head>

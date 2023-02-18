@@ -10,6 +10,9 @@ const config = {
 	kit: {
 		adapter: adapter()
 	},
+	optimizeDeps: {
+    exclude: ['@urql/svelte'],
+  }
 };
 
 export default config;

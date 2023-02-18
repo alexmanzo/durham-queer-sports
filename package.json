@@ -40,6 +40,8 @@
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
 		"@types/react-transition-group": "^4.4.5",
+		"@urql/svelte": "^3.0.3",
+		"graphql": "^16.6.0",
 		"svelte-hamburgers": "^4.0.1"
 	}
 }

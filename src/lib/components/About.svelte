@@ -1,25 +1,43 @@
 <script>
+	import { queryStore, gql, getContextClient } from '@urql/svelte';
+
+	const aboutHomeContent = queryStore({
+		client: getContextClient(),
+		query: gql`
+			query HomeAbout {
+				homepageSection(where: { id: "clea2etcx37n209lmljopnteo" }) {
+					header
+					text {
+						html
+					}
+					image {
+						altText
+						url
+					}
+				}
+			}
+		`
+	});
 </script>
 
 <section id="about" class="lg:my-24 md:my-20 my-10">
 	<div class="flex flex-col items-center justify-between gap-10 md:flex-row">
-		<div class="flex-1">
-			<h2 class="text-3xl mb-5 font-serif font-medium tracking-wide">About DQS</h2>
-			<p>
-				Durham Queer Sports is an association of <strong>free</strong> social sports leagues for
-				queer and trans people around North Carolina's Triangle region. There's
-				<strong>no registration, no fees and no attendance requirements</strong> &ndash; just show up
-				when you want to and play/watch as much or as little as you like.
-			</p>
-			<p class="mt-3">
-				New players and spectators of <strong
-					>all levels, bodies and backgrounds are always welcome</strong
-				> (even at the last game of the season!) Kids welcome & dogs (on leash) welcome unless otherwise
-				specified.
-			</p>
-		</div>
-		<div class="flex-1">
-			<!-- <img class="rounded-2xl" src={imgSrc} alt={imgAlt} use:downloadImage={1} /> -->
-		</div>
+		{#if !$aboutHomeContent.fetching}
+			<div class="flex-1">
+				<h2 class="text-3xl mb-5 font-serif font-medium tracking-wide">
+					{$aboutHomeContent.data.homepageSection.header}
+				</h2>
+				<div>
+					{@html $aboutHomeContent.data.homepageSection.text.html}
+				</div>
+			</div>
+			<div class="flex-1">
+				<img
+					class="rounded-2xl"
+					src={$aboutHomeContent.data.homepageSection.image.url}
+					alt={$aboutHomeContent.data.homepageSection.image.altText}
+				/>
+			</div>
+		{/if}
 	</div>
 </section>
