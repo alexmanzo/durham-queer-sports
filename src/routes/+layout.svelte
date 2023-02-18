@@ -1,5 +1,6 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
+	import Banner from '$lib/components/Banner.svelte';
 	import '@fontsource/open-sans/400.css';
 	import '../app.css';
 
@@ -23,6 +24,7 @@
 	<meta name="theme-color" content="#ffffff" />
 </svelte:head>
 
+<Banner />
 <Header />
 <main class="container mx-auto px-3">
 	<slot />
