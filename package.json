@@ -44,6 +44,7 @@
 		"@types/react-transition-group": "^4.4.5",
 		"@urql/svelte": "^3.0.3",
 		"graphql": "^16.6.0",
-		"svelte-hamburgers": "^4.0.1"
+		"svelte-hamburgers": "^4.0.1",
+		"twilio": "^4.7.2"
 	}
 }
