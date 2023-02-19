@@ -6,9 +6,14 @@ const client = twilio(accountSid, authToken);
 
 export const handler = async (event, context) => {
 	try {
-		const { title, content } = event.body.data;
+		const { data } = JSON.parse(event.body);
+		const { title, content } = data;
 		client.messages
-			.create({ body: `This is a message from Durham Queer Sports. ${title}: ${content}`, from: '+18557823971', to: '+19844848933' })
+			.create({
+				body: `This is a message from Durham Queer Sports. ${title}: ${content}`,
+				from: '+18557823971',
+				to: '+19844848933'
+			})
 			.then((message) => console.log(message.sid));
 		return {
 			statusCode: 200
