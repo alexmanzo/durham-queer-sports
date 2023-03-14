@@ -42,6 +42,7 @@
 		>
 			<nav class="flex flex-col items-center gap-9 py-14 text-2xl">
 				<a href="/about" class="hover:underline" on:click={() => (open = !open)}>About DQS</a>
+				<a href="/faq" class="hover:underline" on:click={() => (open = !open)}>FAQ</a>
 				<a href="/schedule" class="hover:underline" on:click={() => (open = !open)}>Schedule</a>
 				<a href="/waiver" class="hover:underline" on:click={() => (open = !open)}>Waiver</a>
 				<a
