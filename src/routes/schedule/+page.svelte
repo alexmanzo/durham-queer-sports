@@ -3,8 +3,6 @@
 	import { sineOut } from 'svelte/easing';
 	import { queryStore, gql, getContextClient } from '@urql/svelte';
 	import ScheduleItem from '$lib/components/ScheduleItem.svelte';
-
-	let sortedSchedule: App.RecurringEvent[] = [];
 	const scheduleContent = queryStore({
 		client: getContextClient(),
 		query: gql`
@@ -25,10 +23,9 @@
 			return days.indexOf(a.dayOfWeek) - days.indexOf(b.dayOfWeek);
 		});
 	};
-
 </script>
 
-{#if !$scheduleContent.fetching || sortedSchedule.length === 0}
+{#if !$scheduleContent.fetching}
 	<section>
 		<h1 class="font-serif font-normal text-center text-xl lg:text-4xl" in:fade={{ duration: 200 }}>
 			Schedule
@@ -37,7 +34,7 @@
 			class="grid lg:grid-cols-3 md:grid-cols-2 gap-4 mt-7"
 			in:fly={{ y: 200, duration: 250, easing: sineOut }}
 		>
-			{#each sortSchedule($scheduleContent.data.recurringEvents) as event}
+			{#each sortSchedule($scheduleContent.data?.recurringEvents) as event}
 				<ScheduleItem
 					dayOfWeek={event.dayOfWeek}
 					location={event.location}
