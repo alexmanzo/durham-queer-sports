@@ -6,6 +6,13 @@ declare global {
 		// interface Locals {}
 		// interface PageData {}
 		// interface Platform {}
+
+		interface RecurringEvent {
+			league: string;
+			dayOfWeek: string;
+			time: string;
+			location: string;
+		}
 	}
 }
 

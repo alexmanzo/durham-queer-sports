@@ -10,9 +10,7 @@
 				alerts(where: { expires_gte: $expires_gte }) {
 					title
 					updatedAt
-					content {
-						html
-					}
+					content
 				}
 			}
 		`,
