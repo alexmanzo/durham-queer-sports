@@ -21,7 +21,7 @@
 		client: getContextClient(),
 		query: gql`
 			query GetEvents {
-				events {
+				events(where: {eventDateTime_gte: $expires_gte}) {
 					eventTitle
 					eventDateTime
 					eventDescription {
