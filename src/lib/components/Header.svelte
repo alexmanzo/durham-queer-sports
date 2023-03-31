@@ -24,7 +24,7 @@
 <header class="py-5 relative">
 	<div class="flex items-center justify-between w-full relative z-20 container mx-auto px-3">
 		<a href="/">
-			<img src="/logo.png" alt="Durham Queer Sports logo" class="max-h-28 md:max-h-32" />
+			<img src="/Trans.png" alt="Durham Queer Sports logo" class="max-h-28 md:max-h-32" />
 		</a>
 		<Hamburger
 			bind:open
