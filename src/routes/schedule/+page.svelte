@@ -20,8 +20,8 @@
 	const eventContent = queryStore({
 		client: getContextClient(),
 		query: gql`
-			query GetEvents {
-				events(where: {eventDateTime_gte: $expires_gte}) {
+			query GetEvents($expires_gte: DateTime) {
+				events(where: { eventDateTime_gte: $expires_gte }) {
 					eventTitle
 					eventDateTime
 					eventDescription {
@@ -68,7 +68,7 @@
 <h1 class="font-serif font-normal text-center text-2xl lg:text-4xl" in:fade={{ duration: 200 }}>
 	Events
 </h1>
-{#if !$eventContent.fetching}
+{#if !$eventContent.fetching && $eventContent.data?.events.length > 0}
 	<section class="mt-7" in:fly={{ y: 50, duration: 250, easing: sineOut }}>
 		<h2 class="font-serif font-normal text-center text-xl lg:text-2xl" in:fade={{ duration: 200 }}>
 			Upcoming Events
@@ -97,7 +97,7 @@
 						<p>
 							{event.location.streetAddress}<br />
 							{event.location.streetAddressLine2}<br />
-							{event.location.city}, NC<br>
+							{event.location.city}, NC<br />
 							<a
 								target="_blank"
 								rel="noopener noreferrer"
