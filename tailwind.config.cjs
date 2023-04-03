@@ -26,6 +26,9 @@ const config = {
 					11: '#849dff',
 					12: '#eef1fd'
 				}
+			},
+			margin: {
+				'full': 'calc(50% - 50vw)'
 			}
 		}
 	},
