@@ -1,14 +1,3 @@
-<script lang="ts">
-	const submitNewsletterSignup = async () => {
-		setTimeout(() => {
-			email = ''
-		}, 1000);
-	};
-
-	let honeypotField: string | undefined;
-	let email: string;
-</script>
-
 <footer class="bg-indigo py-14 text-white mx-full border-t-indigo-10 border-t-8 relative">
 	<div class="border-y-8 border-t-indigo-9 border-b-indigo-8 absolute top-0 w-full" />
 	<div class="border-y-8 border-t-indigo-7 border-b-indigo-6 absolute top-0 w-full" />
@@ -19,7 +8,6 @@
 		<!-- Begin Mailchimp Signup Form -->
 		<div id="mc_embed_signup">
 			<form
-				on:submit={submitNewsletterSignup}
 				action="https://gmail.us19.list-manage.com/subscribe/post?u=d6288a249cf5353687fd8ee88&amp;id=9bb8fb8306&amp;f_id=0046ace4f0"
 				method="post"
 				target="_blank"
@@ -32,7 +20,7 @@
 					<label for="mce-EMAIL" class="sr-only">Email</label>
 					<input
 						type="email"
-						bind:value={email}
+						value=""
 						name="EMAIL"
 						class="w-full block rounded required email text-indigo-1"
 						placeholder="jamiedoe@gmail.com"
@@ -48,12 +36,7 @@
 				</div>
 				<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 				<div style="position: absolute; left: -5000px;" aria-hidden="true">
-					<input
-						type="text"
-						name="b_d6288a249cf5353687fd8ee88_9bb8fb8306"
-						tabindex="-1"
-						bind:value={honeypotField}
-					/>
+					<input type="text" name="b_d6288a249cf5353687fd8ee88_9bb8fb8306" tabindex="-1" value="" />
 				</div>
 				<button
 					type="submit"
