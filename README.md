@@ -1,22 +1,19 @@
-# create-svelte
+# Durham Queer Sports
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Prerequisites
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+- This project was created on node version `19.4.0`, if you use `nvm` you can just run `nvm use` and it will run the correct version.
+- Create an `.env` file and contact Alex for values for the following:
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+VITE_HYGRAPH_READ_ONLY_ENDPOINT=""
+VITE_HYGRAPH_CONTENT_ENDPOINT=""
+TWILIO_AUTH_TOKEN=""
 ```
 
-## Developing
+## Running the project
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install dependencies with `npm install`, then you can start a development server:
 
 ```bash
 npm run dev
@@ -25,14 +22,10 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## Content
 
-To create a production version of your app:
+Content is managed through [Hygraph](https://hygraph.com/). Due to limited seats, only Alex and Ally have content editing access right now. If you need content to be updated or a schema added, contact Alex.
 
-```bash
-npm run build
-```
+## Tools
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+This project is built with [SvelteKit](https://kit.svelte.dev/docs/introduction). Styling is handled through [Tailwind](https://tailwindcss.com/).
