@@ -24,7 +24,7 @@
 			<div class="text-center mx-auto">
 				{#each $alertContent.data.alerts as alert}
 					<p class="mb-2"><strong>{alert.title}</strong></p>
-					{@html alert.content.html}
+					<p>{alert.content}</p>
 					<p class="text-xs mt-2">Last updated at: {new Date(alert.updatedAt).toLocaleString()}</p>
 				{/each}
 			</div>
