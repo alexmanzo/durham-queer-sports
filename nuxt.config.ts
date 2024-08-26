@@ -2,5 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui", "@nuxt/eslint"],
-  compatibilityDate: "2024-08-26"
+  compatibilityDate: "2024-08-26",
+  eslint: {
+    config: {
+      stylistic: true
+    }
+  }
 })
