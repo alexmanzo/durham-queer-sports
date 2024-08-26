@@ -1,31 +1,75 @@
-# Durham Queer Sports
+# Nuxt UI Minimal Starter
 
-## Prerequisites
+Look at [Nuxt docs](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI docs](https://ui.nuxt.com) to learn more.
 
-- This project was created on node version `19.4.0`, if you use `nvm` you can just run `nvm use` and it will run the correct version.
-- Create an `.env` file and contact Alex for values for the following:
+## Setup
+
+Make sure to install the dependencies:
 
 ```bash
-VITE_HYGRAPH_READ_ONLY_ENDPOINT=""
-VITE_HYGRAPH_CONTENT_ENDPOINT=""
-TWILIO_AUTH_TOKEN=""
+# npm
+npm install
+
+# pnpm
+pnpm install
+
+# yarn
+yarn install
+
+# bun
+bun install
 ```
 
-## Running the project
+## Development Server
 
-Install dependencies with `npm install`, then you can start a development server:
+Start the development server on `http://localhost:3000`:
 
 ```bash
+# npm
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# pnpm
+pnpm run dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
 ```
 
-## Content
+## Production
 
-Content is managed through [Hygraph](https://hygraph.com/). Due to limited seats, only Alex and Ally have content editing access right now. If you need content to be updated or a schema added, contact Alex.
+Build the application for production:
 
-## Tools
+```bash
+# npm
+npm run build
 
-This project is built with [SvelteKit](https://kit.svelte.dev/docs/introduction). Styling is handled through [Tailwind](https://tailwindcss.com/).
+# pnpm
+pnpm run build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm run preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
