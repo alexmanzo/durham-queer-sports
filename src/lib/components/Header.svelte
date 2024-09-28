@@ -51,7 +51,12 @@
 
 <svelte:window on:keydown={onKeydown} />
 <header class="py-5 relative" bind:this={wrapper}>
-	<div class="flex items-center justify-between w-full relative z-20 container mx-auto px-3">
+	<div class="bg-indigo-12 py-5 text-indigo mx-full absolute top-0 left-0 w-full text-center z-40 border-indigo-7">
+		Email us at <a href="mailto:durhamqueersports@gmail.com" target="_blank" class="border-b-2 border-indigo-3 hover:border-transparent hover:text-indigo-6 transition-colors"
+			>durhamqueersports@gmail.com</a
+		> to join our Discord server!
+	</div>
+	<div class="flex items-center justify-between w-full relative z-20 container mx-auto px-3 mt-20 lg:mt-14">
 		<a
 			href="/"
 			class="focus-visible:outline focus-visible:outline-4 focus-visible:outline-indigo outline-offset-4 rounded-full"
