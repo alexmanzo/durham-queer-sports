@@ -51,7 +51,7 @@
 
 <svelte:window on:keydown={onKeydown} />
 <header class="py-5 relative" bind:this={wrapper}>
-	<div class="bg-indigo-12 py-5 text-indigo mx-full absolute top-0 left-0 w-full text-center z-40 border-indigo-7">
+	<div class="bg-indigo-12 py-5 text-indigo mx-full absolute top-0 left-0 w-full text-center border-indigo-7">
 		Email us at <a href="mailto:durhamqueersports@gmail.com" target="_blank" class="border-b-2 border-indigo-3 hover:border-transparent hover:text-indigo-6 transition-colors"
 			>durhamqueersports@gmail.com</a
 		> to join our Discord server!
@@ -79,9 +79,9 @@
 		>
 			<div
 				transition:fly={{ x: 200, duration: 250, easing: sineOut }}
-				class="bg-indigo-12 flex flex-col items-center gap-7 fixed top-0 right-0 pt-24 min-h-screen w-screen z-10 md:w-1/3 shadow-2xl"
+				class="bg-indigo-12 flex flex-col items-center gap-7 fixed top-0 right-0 pt-24 min-h-screen w-screen z-50 md:w-1/3 shadow-2xl"
 			>
-				<nav class="flex flex-col items-center gap-9 py-14 text-2xl">
+				<nav class="flex flex-col items-center gap-9 py-24 text-2xl">
 					<a
 						href="/about"
 						class="hover:underline focus-visible:outline focus-visible:outline-2 outline-offset-4 rounded-sm focus-visible:outline-indigo"
